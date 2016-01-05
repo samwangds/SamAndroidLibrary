@@ -66,7 +66,7 @@ install {
                 developers {
                     developer {
                         id 'SamWang'        //填写的一些基本信息
-                        name '汪东山'
+                        name '山言两语'
                         email 'wds0405@gmail.com'
                     }
                 }
