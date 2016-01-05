@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/home_title"
+    style="@style/title_bar"
+    android:background="@color/title_bg"  >
+<!-- 最基础的title bar 其它title bar  在此基础上改 -->
+
+
+    <TextView
+        android:id="@+id/tv_title_text"
+        style="@style/fill_fill"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"/>
+    <TextView
+        android:id="@+id/title_bar_back_btn"
+        style="@style/title_btn_left_back"
+        android:clickable="true"
+        android:background="@drawable/default_btn_selector"
+        android:drawableLeft="@drawable/ico_back"
+        android:onClick="onBackBtnClick"  />
+    <TextView
+        style="@style/line_light_gray"
+        android:layout_alignParentBottom="true" />
+
+</RelativeLayout>

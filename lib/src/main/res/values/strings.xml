@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="cancel">取消</string>
+    <string name="edit">编辑</string>
+    <string name="confirm">确认</string>
+    <string name="delete">删除</string>
+    <string name="share">分享</string>
+    <string name="about">关于</string>
+
+
+</resources>

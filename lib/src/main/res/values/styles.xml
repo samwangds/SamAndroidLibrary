@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 公共样式 -->
+    <style name="fill_fill">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+    </style>
+
+    <style name="fill_wrap">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="wrap_wrap">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="wrap_fill">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">fill_parent</item>
+    </style>
+
+    <style name="fill_fill_vertical" parent="@style/fill_fill">
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="fill_wrap_vertical" parent="@style/fill_wrap">
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <!-- 顶栏 -->
+    <style name="title_bar" parent="@style/fill_wrap">
+        <item name="android:scaleType">fitXY</item>
+        <item name="android:layout_height">@dimen/title_bar_height</item>
+    </style>
+
+    <!-- 顶栏左键返回 -->
+    <style name="title_btn_left_back" parent="@style/wrap_fill">
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:drawableLeft">@drawable/ico_back</item>
+        <item name="android:paddingRight">5dp</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:marqueeRepeatLimit">marquee_forever</item>
+        <item name="android:scrollHorizontally">true</item>
+    </style>
+
+    <!-- 顶栏右键 -->
+    <style name="title_btn_right" parent="@style/wrap_fill">
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:drawableLeft">@drawable/ico_back</item>
+        <item name="android:paddingRight">5dp</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:marqueeRepeatLimit">marquee_forever</item>
+        <item name="android:scrollHorizontally">true</item>
+    </style>
+
+    <style name="line_light_gray" parent="@style/fill_wrap">
+        <item name="android:background">@android:color/darker_gray</item>
+        <item name="android:layout_height">1px</item>
+    </style>
+
+    <style name="line_light_gray_vertical" parent="@style/wrap_fill">
+        <item name="android:background">@android:color/darker_gray</item>
+        <item name="android:layout_width">1px</item>
+    </style>
+
+
+<!--聊天相关-->
+    <style name="chat_content_date_style">
+        <item name="android:minHeight">50dp</item>
+        <item name="android:gravity">left|center</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:lineSpacingExtra">2dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:background">#bfbfbf</item>
+    </style>
+
+    <style name="chat_text_name_style">
+        <item name="android:textColor">#818181</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="chat_text_date_style">
+        <item name="android:padding">2dp</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:background">#bfbfbf</item>
+    </style>
+</resources>

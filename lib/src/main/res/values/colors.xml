@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="title_bg">#327ef1</color>
+    <color name="btn_on_press">#40000000</color>
+
+    <color name="gray_c">#cccccc</color>
+    <color name="login_btn_text">#223563</color>
+    <color name="base_blue_bg">#47abef</color>
+    <color name="half_black">#808080</color>
+    <color name="white_pressed">#f1f1f1</color>
+
+    <color name="corner_btn_bg_pressed">@color/base_blue_bg</color>
+    <color name="corner_btn_bg_normal">@android:color/white</color>
+</resources>
