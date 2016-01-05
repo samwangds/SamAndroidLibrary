@@ -44,8 +44,8 @@ dependencies {
     compile 'com.android.support:appcompat-v7:22.2.1'
 }
 
-def siteUrl = 'https://github.com/samwangds/SamAndroidLibirary'   // 项目的主页
-def gitUrl = 'git@github.com:samwangds/SamAndroidLibirary.git'   // Git仓库的url
+def siteUrl = 'https://github.com/samwangds/SamAndroidLibrary'   // 项目的主页
+def gitUrl = 'git@github.com:samwangds/SamAndroidLibrary.git'   // Git仓库的url
 group = "com.sam.android.lib"            // Maven Group ID for the artifact，一般填你唯一的包名
 install {
     repositories.mavenInstaller {
@@ -54,7 +54,7 @@ install {
             project {
                 packaging 'aar'
                 // Add your description here
-                name 'Android Libirary for quickly develop'     //项目的描述 你可以多写一点
+                name 'Android Library for quickly develop'     //项目的描述 你可以多写一点
                 url siteUrl
                 // Set your license
                 licenses {
@@ -103,7 +103,7 @@ bintray {
     configurations = ['archives']
     pkg {
         repo = "maven"
-        name = "SamAndroidLibirary"    //发布到JCenter上的项目名字
+        name = "SamAndroidLibrary"    //发布到JCenter上的项目名字
         websiteUrl = siteUrl
         vcsUrl = gitUrl
         licenses = ["Apache-2.0"]
