@@ -35,7 +35,6 @@ import java.io.IOException;
  * @see 	 
  */
 public class JsonUtil {
-
 	private static ObjectMapper mapper;
 	private static SimpleModule simpleModule;
 

@@ -1,10 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
-
-// 这个version是区分library版本的，因此当我们需要更新library时记得修改这个version
-// 这个version影响后面的引用
-version = "0.0.1"
+version = "0.0.3"
 
 android {
     compileSdkVersion 22
@@ -15,8 +12,8 @@ android {
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 22
-        versionCode 1
-        versionName "1.0"
+        versionCode 3
+        versionName version
     }
     buildTypes {
         release {
@@ -40,7 +37,6 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile files('libs/jackson-core-asl-1.7.3.jar')
     compile files('libs/jackson-mapper-asl-1.7.3.jar')
-    compile 'com.j256.ormlite:ormlite-android:4.48'
     compile 'com.android.support:appcompat-v7:22.2.1'
 }
 
@@ -85,6 +81,7 @@ task sourcesJar(type: Jar) {
 }
 task javadoc(type: Javadoc) {
     source = android.sourceSets.main.java.srcDirs
+    options.encoding = "UTF-8"
     classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
 }
 task javadocJar(type: Jar, dependsOn: javadoc) {

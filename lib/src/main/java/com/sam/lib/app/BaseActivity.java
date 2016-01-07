@@ -1,5 +1,6 @@
 package com.sam.lib.app;
 
+import android.app.ActivityManager;
 import android.app.Application;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -15,8 +16,6 @@ import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.j256.ormlite.logger.Logger;
-import com.j256.ormlite.logger.LoggerFactory;
 import com.samwang.common.lib.R;
 
 
@@ -34,9 +33,6 @@ public class BaseActivity extends AppCompatActivity {
     private final static int EXIT_MSG_OUT_TIME_WHAT = 2;
     private boolean isBackClicked = false;
     public final static String KEY_DATA = "data";
-
-    protected static Logger logger = LoggerFactory.getLogger(BaseActivity.class);
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,9 +102,9 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     public void exitApp() {
-        /*String packName = getPackageName();
+        String packName = getPackageName();
         ActivityManager activityMgr = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
-        activityMgr.killBackgroundProcesses(packName);*/
+        activityMgr.killBackgroundProcesses(packName);
         finish();
         System.exit(0);
     }
@@ -196,6 +192,9 @@ public class BaseActivity extends AppCompatActivity {
                 case EXIT_MSG_WHAT:
                     isBackClicked = false;
                     break;
+                case EXIT_MSG_OUT_TIME_WHAT:
+                    mHandler.removeMessages(EXIT_MSG_WHAT);
+                    break;
 
             }
             return false;
@@ -212,7 +211,7 @@ public class BaseActivity extends AppCompatActivity {
 //            finish();
         }else {
             isBackClicked = true;
-            mHandler.sendEmptyMessageDelayed(EXIT_MSG_WHAT, EXIT_TIME_DELAY);
+            mHandler.sendEmptyMessageDelayed(EXIT_MSG_OUT_TIME_WHAT, EXIT_TIME_DELAY);
             toast("再次点击返回键退出");
         }
     }
