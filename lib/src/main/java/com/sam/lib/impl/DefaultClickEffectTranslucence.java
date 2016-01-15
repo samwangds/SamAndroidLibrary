@@ -29,12 +29,10 @@ public class DefaultClickEffectTranslucence implements ViewClickEffect {
     @Override
     public void onPressedEffect(View view) {
         view.animate().alpha(scale).setDuration(duration).setInterpolator(interpolator);
-//        view.animate().scaleX(scale).scaleY(scale).setDuration(duration).setInterpolator(interpolator);
     }
 
     @Override
     public void onUnPressedEffect(View view) {
         view.animate().alpha(1).setDuration(duration).setInterpolator(interpolator);
-//        view.animate().scaleX(1).scaleY(1).setInterpolator(interpolator);
     }
 }

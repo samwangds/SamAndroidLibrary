@@ -5,4 +5,4 @@
 
 
 # gradle dependencies
-    `compile 'com.sam.android.lib:lib:0.0.3'`
+  `compile 'com.sam.android.lib:lib:0.0.3' `
