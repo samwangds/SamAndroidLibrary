@@ -13,10 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import com.samwang.common.lib.R;
 
 
 /**
@@ -28,7 +25,7 @@ public class BaseActivity extends AppCompatActivity {
     protected Application mApplication;
     protected BaseActivity act;
     private ProgressDialog mDialog ;
-    private final static int EXIT_TIME_DELAY = 1000*1000;
+    private final static int EXIT_TIME_DELAY = 1000;
     private final static int EXIT_MSG_WHAT = 1;
     private final static int EXIT_MSG_OUT_TIME_WHAT = 2;
     private boolean isBackClicked = false;
@@ -109,35 +106,9 @@ public class BaseActivity extends AppCompatActivity {
         System.exit(0);
     }
 
-    /**
-     * 设置标题
-     * @param resId
-     */
-    protected void setTitleBarText(int resId){
-        ((TextView) findViewById(R.id.tv_title_text)).setText(resId);
-    }
-
-    /**
-     * 设置标题
-     * @param title
-     */
-    protected void setTitleBarText(CharSequence title){
-        ((TextView) findViewById(R.id.tv_title_text)).setText(title);
-    }
-
     protected void startActivity(Class<?> cls){
         Intent intent = new Intent(this,cls);
         startActivity(intent);
-    }
-
-    protected View getTitleBarView(){
-        return findViewById(R.id.tv_title_text);
-    }
-    protected void setTitleTextColr(int color){
-       TextView tv = (TextView) findViewById(R.id.tv_title_text);
-        if(tv != null){
-            tv.setTextColor(color);
-        }
     }
 
     protected void startActivityFinishSelf(Class<?> cls){
@@ -165,7 +136,6 @@ public class BaseActivity extends AppCompatActivity {
      * 进度框取消回调
      */
     protected void onProgressDialogCancel(){
-
 //        AppResultUtil.recycleTask(mTask);
     }
 

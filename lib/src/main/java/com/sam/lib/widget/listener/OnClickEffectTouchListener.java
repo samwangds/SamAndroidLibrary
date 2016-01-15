@@ -1,9 +1,10 @@
 package com.sam.lib.widget.listener;
 
-import android.animation.TimeInterpolator;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.animation.DecelerateInterpolator;
+
+import com.sam.lib.impl.DefaultClickEffectScaleAnimate;
+import com.sam.lib.interfaces.ViewClickEffect;
 
 /**
  * 通过设置view的setOnTouchListener，
@@ -11,30 +12,15 @@ import android.view.animation.DecelerateInterpolator;
  * @author SamWang
  * @date 2015/12/25	14:39
  */
-public class OnClickAnimTouchListener implements View.OnTouchListener {
+public class OnClickEffectTouchListener implements View.OnTouchListener {
 
-    /**
-     * 先快后慢的动画效果,可自行替换其它效果
-     */
-    private TimeInterpolator interpolator= new DecelerateInterpolator();
-    /**
-     * 点击时缩小的比例
-     */
-    private static final float scale = 0.7f;
-    /**
-     * 点击动画持续时间
-     */
-    private static final int duration = 150;
 
-    public void setInterpolator(TimeInterpolator interpolator) {
-        this.interpolator = interpolator;
-    }
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                v.animate().scaleX(scale).scaleY(scale).setDuration(duration).setInterpolator(interpolator);
+                mViewClickEffect.onPressedEffect(v);
                 v.setPressed(true);
                 break;
 
@@ -47,11 +33,11 @@ public class OnClickAnimTouchListener implements View.OnTouchListener {
                 }
                 break;
             case MotionEvent.ACTION_CANCEL:
+                mViewClickEffect.onUnPressedEffect(v);
                 v.setPressed(false);
-                v.animate().scaleX(1).scaleY(1).setInterpolator(interpolator);
                 break;
             case MotionEvent.ACTION_UP:
-                v.animate().scaleX(1).scaleY(1).setInterpolator(interpolator);
+                mViewClickEffect.onUnPressedEffect(v);
                 if (v.isPressed()) {
                     v.performClick();
                     v.setPressed(false);
@@ -59,5 +45,21 @@ public class OnClickAnimTouchListener implements View.OnTouchListener {
                 break;
         }
         return true;
+    }
+
+
+
+
+    /**
+     * View的点击状态效果定义
+     */
+    private ViewClickEffect mViewClickEffect = new DefaultClickEffectScaleAnimate();
+
+    public ViewClickEffect getViewClickEffect() {
+        return mViewClickEffect;
+    }
+
+    public void setViewClickEffect(ViewClickEffect viewClickEffect) {
+        mViewClickEffect = viewClickEffect;
     }
 }
