@@ -1,18 +1,18 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
-version = "0.0.4"
+version = "0.0.5"
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion "22.0.1"
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
     resourcePrefix "samlib_"
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 22
-        versionCode 3
+        targetSdkVersion rootProject.ext.compileSdkVersion
+        versionCode 4
         versionName version
     }
     buildTypes {
@@ -37,7 +37,7 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile files('libs/jackson-core-asl-1.7.3.jar')
     compile files('libs/jackson-mapper-asl-1.7.3.jar')
-    compile 'com.android.support:appcompat-v7:22.2.1'
+    compile "com.android.support:appcompat-v7:${supportLibVersion}"
 }
 
 def siteUrl = 'https://github.com/samwangds/SamAndroidLibrary'   // 项目的主页
