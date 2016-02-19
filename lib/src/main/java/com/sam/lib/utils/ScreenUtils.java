@@ -129,7 +129,7 @@ public class ScreenUtils {
      * @param context
      * @return
      */
-    private static boolean checkDeviceHasNavigationBar(Context context) {
+    public static boolean checkDeviceHasNavigationBar(Context context) {
         boolean hasNavigationBar = false;
         Resources rs = context.getResources();
         int id = rs.getIdentifier("config_showNavigationBar", "bool", "android");
@@ -159,7 +159,7 @@ public class ScreenUtils {
      * @param context
      * @return
      */
-    private static int getNavigationBarHeight(Context context) {
+    public static int getNavigationBarHeight(Context context) {
         int navigationBarHeight = 0;
         Resources rs = context.getResources();
         int id = rs.getIdentifier("navigation_bar_height", "dimen", "android");
