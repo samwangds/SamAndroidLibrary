@@ -5,4 +5,6 @@
 
 
 # gradle dependencies
-  `compile 'com.sam.android.lib:lib:0.0.3' `
+  `compile 'com.sam.android.lib:lib:version' `
+  version用这个文件中version的具体值代替
+  https://github.com/samwangds/SamAndroidLibrary/blob/master/lib/build.gradle
