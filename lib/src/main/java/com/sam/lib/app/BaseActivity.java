@@ -1,6 +1,5 @@
 package com.sam.lib.app;
 
-import android.app.ActivityManager;
 import android.app.Application;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -99,11 +98,13 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     public void exitApp() {
-        String packName = getPackageName();
-        ActivityManager activityMgr = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
-        activityMgr.killBackgroundProcesses(packName);
+//        String packName = getPackageName();
+//        ActivityManager activityMgr = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
+//        activityMgr.killBackgroundProcesses(packName);
+//        finish();
+//        System.exit(0);
         finish();
-        System.exit(0);
+        android.os.Process.killProcess(android.os.Process.myPid());
     }
 
     protected void startActivity(Class<?> cls){
