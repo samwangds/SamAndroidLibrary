@@ -98,13 +98,9 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     public void exitApp() {
-//        String packName = getPackageName();
-//        ActivityManager activityMgr = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
-//        activityMgr.killBackgroundProcesses(packName);
-//        finish();
-//        System.exit(0);
         finish();
         android.os.Process.killProcess(android.os.Process.myPid());
+        System.exit(0);
     }
 
     protected void startActivity(Class<?> cls){
