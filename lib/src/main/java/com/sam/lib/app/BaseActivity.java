@@ -6,13 +6,13 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
+
+import com.sam.lib.common.ExitHandler;
 
 
 /**
@@ -98,13 +98,9 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     public void exitApp() {
-//        String packName = getPackageName();
-//        ActivityManager activityMgr = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
-//        activityMgr.killBackgroundProcesses(packName);
-//        finish();
-//        System.exit(0);
         finish();
         android.os.Process.killProcess(android.os.Process.myPid());
+        System.exit(0);
     }
 
     protected void startActivity(Class<?> cls){
@@ -156,33 +152,21 @@ public class BaseActivity extends AppCompatActivity {
     }
 
 
-    private Handler mHandler = new Handler(new Handler.Callback() {
-        @Override
-        public boolean handleMessage(Message msg) {
-            switch (msg.what){
-                case EXIT_MSG_WHAT:
-                    isBackClicked = false;
-                    break;
-                case EXIT_MSG_OUT_TIME_WHAT:
-                    mHandler.removeMessages(EXIT_MSG_WHAT);
-                    break;
+    private ExitHandler mHandler;
 
-            }
-            return false;
-        }
-    });
 
     /**
      * 双击返回退出
      */
     protected void onDoubleBackExit(){
-        if(isBackClicked){
-            mHandler.removeMessages(EXIT_MSG_WHAT);
+        if (mHandler == null) {
+            mHandler = new ExitHandler();
+        }
+        if(mHandler.isBackClicked()){
             exitApp();
-//            finish();
         }else {
-            isBackClicked = true;
-            mHandler.sendEmptyMessageDelayed(EXIT_MSG_OUT_TIME_WHAT, EXIT_TIME_DELAY);
+            mHandler.sendEmptyMessage(ExitHandler.EXIT_MSG_WHAT);
+            mHandler.sendEmptyMessageDelayed(ExitHandler.EXIT_MSG_OUT_TIME_WHAT, EXIT_TIME_DELAY);
             toast("再次点击返回键退出");
         }
     }
