@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 /**
  * 基础Fragment类
@@ -59,5 +60,21 @@ public abstract class BaseFragment extends Fragment{
      * @return
      */
     protected abstract int getLayoutRes();
+
+    /**
+     * 显示 toast
+     * @param resId 资源ID
+     */
+    protected void toast(int resId){
+        Toast.makeText(getContext(),resId,Toast.LENGTH_SHORT).show();
+    }
+
+    /**
+     * 显示 toast
+     * @param text str
+     */
+    protected void toast(CharSequence text){
+        Toast.makeText(getContext(),text,Toast.LENGTH_SHORT).show();
+    }
 
 }
