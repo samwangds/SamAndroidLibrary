@@ -77,7 +77,7 @@ public class BaseActivity extends AppCompatActivity {
      * 显示 toast
      * @param resId 资源ID
      */
-    protected void toast(int resId){
+    public void toast(int resId){
         Toast.makeText(this,resId,Toast.LENGTH_SHORT).show();
     }
 
@@ -85,7 +85,7 @@ public class BaseActivity extends AppCompatActivity {
      * 显示 toast
      * @param text str
      */
-    protected void toast(CharSequence text){
+    public void toast(CharSequence text){
         Toast.makeText(this,text,Toast.LENGTH_SHORT).show();
     }
 

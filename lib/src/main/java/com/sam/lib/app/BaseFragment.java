@@ -65,7 +65,7 @@ public abstract class BaseFragment extends Fragment{
      * 显示 toast
      * @param resId 资源ID
      */
-    protected void toast(int resId){
+    public void toast(int resId){
         Toast.makeText(getContext(),resId,Toast.LENGTH_SHORT).show();
     }
 
@@ -73,7 +73,7 @@ public abstract class BaseFragment extends Fragment{
      * 显示 toast
      * @param text str
      */
-    protected void toast(CharSequence text){
+    public void toast(CharSequence text){
         Toast.makeText(getContext(),text,Toast.LENGTH_SHORT).show();
     }
 
