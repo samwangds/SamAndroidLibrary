@@ -1,6 +1,7 @@
 package com.sam.lib.app;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,19 @@ import android.widget.Toast;
  * @date 2016/1/5	14:09
  */
 public abstract class BaseFragment extends Fragment{
+    private static final String STATE_SAVE_IS_HIDDEN = "STATE_SAVE_IS_HIDDEN";
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (savedInstanceState != null) {
+            boolean isHidden = savedInstanceState.getBoolean(STATE_SAVE_IS_HIDDEN);
+            if (isHidden) {
+                getFragmentManager().beginTransaction().hide(this).commit();
+            }
+        }
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -77,4 +91,10 @@ public abstract class BaseFragment extends Fragment{
         Toast.makeText(getContext(),text,Toast.LENGTH_SHORT).show();
     }
 
+    //回收时保存状态
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean(STATE_SAVE_IS_HIDDEN, isHidden());
+    }
 }
