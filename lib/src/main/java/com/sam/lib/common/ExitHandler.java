@@ -11,6 +11,8 @@ public class ExitHandler extends Handler {
     public final static int EXIT_MSG_WHAT = 1;
     public final static int EXIT_MSG_OUT_TIME_WHAT = 2;
     private boolean isBackClicked = false;
+    private final static int EXIT_TIME_DELAY = 1000;
+
     @Override
     public void handleMessage(Message msg) {
         switch (msg.what){
@@ -23,7 +25,15 @@ public class ExitHandler extends Handler {
         }
     }
 
+    /**
+     * 是否已经点了返回键，
+     * @return true 已点一次（直接退出），false 未点过（第一次，应该toast）
+     */
     public boolean isBackClicked() {
+        if(!isBackClicked){
+            sendEmptyMessage(ExitHandler.EXIT_MSG_WHAT);
+            sendEmptyMessageDelayed(ExitHandler.EXIT_MSG_OUT_TIME_WHAT, EXIT_TIME_DELAY);
+        }
         return isBackClicked;
     }
 

@@ -165,8 +165,6 @@ public class BaseActivity extends AppCompatActivity {
         if(mHandler.isBackClicked()){
             exitApp();
         }else {
-            mHandler.sendEmptyMessage(ExitHandler.EXIT_MSG_WHAT);
-            mHandler.sendEmptyMessageDelayed(ExitHandler.EXIT_MSG_OUT_TIME_WHAT, EXIT_TIME_DELAY);
             toast("再次点击返回键退出");
         }
     }
