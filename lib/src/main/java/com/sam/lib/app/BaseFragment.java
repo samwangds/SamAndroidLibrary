@@ -1,6 +1,7 @@
 package com.sam.lib.app;
 
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -48,7 +49,7 @@ public abstract class BaseFragment extends Fragment{
 
     }
 
-    protected View findViewById(int id){
+    protected View findViewById(@IdRes int id){
         if(getView() != null ){
             return getView().findViewById(id);
         }
